@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: es-deploy
   labels:
-    service: es
+    service: es-deploy
 spec:
   replicas: 2
   template:
@@ -46,7 +46,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: es-deploy
+    service: es-deploy
   ports:
   - name: "9200"
     port: 9200
