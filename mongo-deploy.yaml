@@ -1,6 +1,33 @@
-apiVersion: apps/v1
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  service: mongo-deploy
+  name: mongo-deploy
+  labels:
+    service: mongo-deploy
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        service: mongo-deploy
+    spec:
+      containers:
+      - name: mongodb
+        image: mongo:3
+        ports:
+        - containerPort: 27017
 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo
+spec:
+  selector:
+    service: mongo-deploy
+  ports:
+  - name: "27017"
+    port: 27017
+    targetPort: 27017
+        
 
