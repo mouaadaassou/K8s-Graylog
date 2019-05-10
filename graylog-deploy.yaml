@@ -16,30 +16,33 @@ spec:
         image: graylog/graylog:3.0
         env:
         - name: GRAYLOG_PASSWORD_SECRET
-          value: somepasswordpepper
+          value: g0ABP9MJnWCjWtBX9JHFgjKAmD3wGXP3E0JQNOKlquDHnCn5689QAF8rRL66HacXLPA6fvwMY8BZoVVw0JqHnSAZorDDOdCk
         - name: GRAYLOG_ROOT_PASSWORD_SHA2
           value: 8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
         - name: GRAYLOG_HTTP_EXTERNAL_URI
-          value: http://127.0.0.1:9000/
+          value: http://35.222.79.129:30003/
         - name: GRAYLOG_ELASTICSEARCH_HOSTS
-          value: "http://es6:9200"
+          value: http://es6:9200
         - name: GRAYLOG_MONGODB_URI
-          value: "mongodb://mongo:27017/graylog"
+          value: mongodb://mongo:27017/graylog
+          #- name: GRAYLOG_HTTP_PUBLISH_URI
+          # value: http://127.0.0.1:9000/
+          #- name: GRAYLOG_HTTP_BIND_ADDRESS
+          #  value: 127.0.0.1:9000
         ports:
         - containerPort: 9000
         - containerPort: 12201
-        livenessProbe:
-          initialDelaySeconds: 180
-          exec:
-            command:
-            - curl
-            - localhost:9000
-        readinessProbe:
-          initialDelaySeconds: 20
-          exec:
-            command:
-            - curl
-            - localhost:9000
+          #livenessProbe:
+                #initialDelaySeconds: 180
+          #periodSeconds: 10
+          #tcpSocket:
+                  #port: 12201
+            #readinessProbe:
+                #initialDelaySeconds: 30
+          #periodSeconds: 10
+          #tcpSocket:
+            #port: 12201
+
 ---
 apiVersion: v1
 kind: Service
