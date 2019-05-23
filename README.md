@@ -1,8 +1,10 @@
-# K8s-Graylog
+# Graylog with Kubernetes and GKE
+<br/><br/>
 
 ## Project Goal :
 
-This project aims to demonstrate how to deploy The Graylog Stack - Graylog v3, Elasticsearch v6 along with MongoDB v3 - with Kubernetes.
+This project aims to demonstrate how to deploy The Graylog Stack - Graylog v3, Elasticsearch v6 along with MongoDB v3 - using Kubernetes, 
+and how to collect data from different data sources using inputs, and use the stream & outputs.
 
 ## What is Graylog :
 Graylog is a leading centralized log management solution built to open standards for capturing, storing, and enabling real-time analysis
@@ -20,18 +22,55 @@ as well as Output (how can Graylog nodes forward messages) - we can mention :
 
 
 You can route incoming messages into streams by applying rules against them. Messages matching the rules of a stream are routed into it.
-A message can also be routed into multiple streams
+A message can also be routed into multiple streams.
 
-## How to use this project
-you can easily use this project just by cloning it, and customize the manifest files for K8s.
-but it is mandatory to set the GRAYLOG_HTTP_EXTERNAL_URI variable to your ip host
+## Scenario
+In this article, we gonna create a kubernetes cron job which will be used as data source for Graylog, this data source
+will send message to the Graylog pod every 2 seconds. then we gonna create a stream to hold these message.
+
+the advantage of this approach is that you can collect data from multiple data source and each one get its stream - each message stream -
+so for example a stream for data that comes from AWS EC2 instances, or you Application - which we will discover in a another article.
+
+#### Pre-requisites:
+* GKE clsuter, Google gives you an account with 300$ for free.
+* or use can use minikube, for that you have to adjust the elasticsearch manifest, so that you shouldn't use
+affinity so that the elasticsearch service can start.
+<br/>
+<br/>
+
+## setting up the  project on your cluster
+#### cloning the project
+you can use the my project from github [Repository](https://github.com/mouaadaassou/K8s-Graylog) :
+```
+    git clone https://github.com/mouaadaassou/K8s-Graylog.git
+```
+
+#### Configuring Graylog deployment
+you have to customize the GRAYLOG_HTTP_EXTERNAL_URI value so that it points to your local or remote host
 
 ```
   - name: GRAYLOG_HTTP_EXTERNAL_URI
     value: #your_remote_or_localhost_ip
 ```
 
+you can also change the default password to login to the Graylog web interface, to do so you have to run the following 
+command into your terminal
 
+```
+echo -n "Enter Password: " && head -1 </dev/stdin | tr -d '\n' | sha256sum | cut -d" " -f1
+
+```
+
+this command will ask you to enter your password, then copy past the generated hashed password to the environment variable :
+
+```
+  - name: GRAYLOG_ROOT_PASSWORD_SHA2
+    value: generated_hashed_password_here
+```
+
+you can check the Graylog config file [graylog.conf](https://github.com/Graylog2/graylog2-server/blob/master/misc/graylog.conf) for more details.
+
+## 
 ## Q/A
 ### Why Elasticsearch version 6 and not version 7 ?
 Graylog v3 support only Elasticsearch version 6 - as a majot version. so you cannot use Elasticsearch 7 - at least at the time of writing, 
