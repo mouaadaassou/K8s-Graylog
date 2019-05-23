@@ -25,23 +25,9 @@ spec:
           value: http://es6:9200
         - name: GRAYLOG_MONGODB_URI
           value: mongodb://mongo:27017/graylog
-          #- name: GRAYLOG_HTTP_PUBLISH_URI
-          # value: http://127.0.0.1:9000/
-          #- name: GRAYLOG_HTTP_BIND_ADDRESS
-          #  value: 127.0.0.1:9000
         ports:
         - containerPort: 9000
         - containerPort: 12201
-          #livenessProbe:
-                #initialDelaySeconds: 180
-          #periodSeconds: 10
-          #tcpSocket:
-                  #port: 12201
-            #readinessProbe:
-                #initialDelaySeconds: 30
-          #periodSeconds: 10
-          #tcpSocket:
-            #port: 12201
 
 ---
 apiVersion: v1
