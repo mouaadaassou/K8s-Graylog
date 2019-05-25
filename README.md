@@ -133,7 +133,7 @@ System -> Input
   
 ## Q/A
 ### Why Elasticsearch version 6 and not version 7 ?
-Graylog v3 support only Elasticsearch version 6 - as a majot version. so you cannot use Elasticsearch 7 - at least at the time of writing, 
+Graylog v3 support only Elasticsearch version 6 - as a major version. so you cannot use Elasticsearch 7 - at least at the time of writing, 
 but you can check the Grayog Documentation for further information.
 
 ### how to generate an admin password:
