@@ -199,8 +199,8 @@ all the messages from the source alpine-k8s.org which is our running cron job
 
 #### Where to Go
 Graylog is a very flexible, it support different data soure inputs, you can creat streams and attach it to a given input/output, ...
-after this article, you are able to start you own Gaylog Stack and log data to it,
-for further information about Graylog, you take a look at the Official Documentation
+after this article, you are able to start your own Gaylog Stack and log data to it,
+for further information about Graylog, you take a look at the [Official Documentation](https://docs.graylog.org/en/3.0/)
 
 next article we gonna use Graylog with Spring Boot Application to demonstrate how
 send our Application logs to Graylog. looking forwards :).
