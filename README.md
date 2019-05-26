@@ -3,7 +3,7 @@
 
 ## Introduction
 all we know that collecting data - Logs, ... - from different data sources - whether it is an application, server, service, ... -
-is a necessity to have a better tracking system that tells what went wrong with your system, also to know exactly 
+is a necessity to have a better tracking system that tells what went wrong with your system at a specific time, also to know exactly 
 how your system behave.
 Here Comes Graylog to do the job, collecting data from different sources, creating dashboards, streams, and also 
 behave gain as data source in case you created a Graylog output  
@@ -205,7 +205,8 @@ after this article, you are able to start your own Gaylog Stack and log data to 
 for further information about Graylog, you take a look at the [Official Documentation](https://docs.graylog.org/en/3.0/)
 
 next article we gonna use Graylog with Spring Boot Application to demonstrate how
-send our Application logs to Graylog. looking forwards :).
+send our Application logs to Graylog and how to create a Dashboard for this specific application 
+to visualize the metrics. looking forwards :).
   
 ## Q/A
 ### Why Elasticsearch version 6 and not version 7 ?
