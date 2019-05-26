@@ -2,7 +2,7 @@
 <br/><br/>
 
 ## Introduction
-all we know that collecting data - Logs, ... - from different data sources - whether it is an application, server, service, ... -
+all know that collecting data - Logs, ... - from different data sources - whether it is an application, server, service, ... -
 is a necessity to have a better tracking system that tells what went wrong with your system at a specific time, also to know exactly 
 how your system behave.
 Here Comes Graylog to do the job, collecting data from different sources, creating dashboards, streams, and also 
@@ -41,13 +41,13 @@ so for example a stream for data that comes from AWS EC2 instances, or your Appl
 
 #### Pre-requisites:
 * GKE clsuter, Google gives you an account with 300$ for free.
-* or use can use minikube, for that you have to adjust the elasticsearch manifest, so that you shouldn't use
+* or you can use minikube, for that you have to adjust the elasticsearch manifest, so that you shouldn't use
 affinity so that the elasticsearch service can start.
 <br/>
 <br/>
 
-> you can create an account in the [Google Cloud](https://cloud.google.com/free) so that you get The $300 credit.
-this credit The $300 is only used when you exceed free usage limits. Credit expires in 12 months.
+> you can create an account in [Google Cloud](https://cloud.google.com/free) so that you get $300 credit.
+this credit - $300 - is only used when you exceed free usage limits. Credit expires in 12 months.
 ## setting up the  project on your cluster
 #### cloning the project
 you can use my project from github [Repository](https://github.com/mouaadaassou/K8s-Graylog) :
@@ -62,7 +62,7 @@ To deploy Graylog, you need to run Elasticsearch along with MongoDB, but the que
 the reason behind this requirement is as follow: 
 * Graylog uses MongoDB to store your configuration data, not your log data. Only metadata is stored, such as user information or stream configuration
 
-* Graylog uses Elasticsearch to store the logged data, as we know Elasticsearch is powerful search engine . it is recommend to use a dedicated Elasticsearch cluster for your Graylog setup. 
+* Graylog uses Elasticsearch to store the logged data, as we know Elasticsearch is powerful search engine . it is recommended to use a dedicated Elasticsearch cluster for your Graylog setup. 
 
 So you have to first deploy Elasticsearch and MongoDB so that the Graylog can start. 
 #### Explaining the Corn Job
@@ -210,7 +210,7 @@ to visualize the metrics. looking forwards :).
   
 ## Q/A
 ### Why Elasticsearch version 6 and not version 7 ?
-Graylog v3 support only Elasticsearch version 6 - as a majot version. so you cannot use Elasticsearch 7 - at least at the time of writing, 
+Graylog v3 support only Elasticsearch version 6 - as a major version. so you cannot use Elasticsearch 7 - at least at the time of writing, 
 but you can check the Grayog Documentation for further information.
 
 ### how to generate an admin password:
