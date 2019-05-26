@@ -197,6 +197,8 @@ press Save, and Go Streams, you will list all the existing streams :
 > as you can see, our stream cronjob-1 has been created, click on it, and you will see
 all the messages from the source alpine-k8s.org which is our running cron job
 
+![Existing Streams](images/stream-results.PNG)
+
 #### Where to Go
 Graylog is a very flexible, it support different data soure inputs, you can creat streams and attach it to a given input/output, ...
 after this article, you are able to start your own Gaylog Stack and log data to it,
