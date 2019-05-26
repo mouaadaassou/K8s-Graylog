@@ -171,10 +171,39 @@ we have just to check the received message as follow : click on Search
 
 ![All-Messages stream](images/all-messages-stream.PNG)
 
-#### Creating a Separate Stream for CronJob message:
+#### Creating a Separate Stream for CronJob messages:
 until now, we did a great job, we have everything we need.
 but in case that we have multiple inputs, and all of them put the messages to the All-Messages stream,
-we will
+we will get some messy, so it will be difficult to know which input has send this message without 
+filtering. at this is moment think about creating you own stream.
+
+To create a stream for that specific input, Go to Streams, click on Creat Stream button
+and fulfil the form as follow :
+
+![Stream-creation](images/cronjob-1-stream.PNG)
+ 
+press Save, in my case i named this stream 'crinjob-1'.
+after that we have to manage rules - we should tell graylog which messages
+should be in our stream.
+
+click Manage Rules -> Add stream rule, then fulfil the form as follow :
+![Stream-rules](images/stream-cron-job-1-rule.PNG)
+
+>in my case, i am telling graylog to put the message received by "source"="alpine-k8s.org" in the created stream.
+
+press Save, and Go Streams, you will list all the existing streams :
+![Existing Streams](images/graylog-streams.PNG)
+
+> as you can see, our stream cronjob-1 has been created, click on it, and you will see
+all the messages from the source alpine-k8s.org which is our running cron job
+
+#### Where to Go
+Graylog is a very flexible, it support different data soure inputs, you can creat streams and attach it to a given input/output, ...
+after this article, you are able to start you own Gaylog Stack and log data to it,
+for further information about Graylog, you take a look at the Official Documentation
+
+next article we gonna use Graylog with Spring Boot Application to demonstrate how
+send our Application logs to Graylog. looking forwards :).
   
 ## Q/A
 ### Why Elasticsearch version 6 and not version 7 ?
