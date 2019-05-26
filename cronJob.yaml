@@ -14,5 +14,5 @@ spec:
             args:
             - /bin/sh
             - -c
-            - apk add curl -y; while true; do curl -XPOST http://graylog3:12201/gelf -p0 -d '{"short_message":"Hello there", "host":"alpine-k8s.org", "facility":"test", "_foo":"bar"}';sleep 1s; done
+            - apk add curl -y; while true; do curl -XPOST http://graylog3:12201/gelf -p0 -d '{"short_message":"Hello there, i am your corn job ;)", "host":"alpine-k8s.org", "facility":"test", "_foo":"bar"}';sleep 1s; done
           restartPolicy: OnFailure
