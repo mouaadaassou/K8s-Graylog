@@ -31,7 +31,7 @@ spec:
         - name: GRAYLOG_ROOT_PASSWORD_SHA2
           value: 8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
         - name: GRAYLOG_HTTP_EXTERNAL_URI
-          value: http://your_ip_address:30003/
+          value: http://localhost:9000/
         - name: GRAYLOG_ELASTICSEARCH_HOSTS
           value: http://es6:9200
         - name: GRAYLOG_MONGODB_URI
