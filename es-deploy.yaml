@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   name: es-deploy
+  namespace: graylog
   labels:
     service: es-deploy
 spec:

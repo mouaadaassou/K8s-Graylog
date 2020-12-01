@@ -5,6 +5,7 @@ metadata:
   labels:
     service: mongo-deploy
   name: mongo-deploy
+  namespace: graylog
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
