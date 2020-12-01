@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: graylog3
+  namespace: graylog
+spec:
+  type: NodePort
+  selector:
+    service: graylog-deploy
+  ports:
+  - name: "9000"
+    port: 9000
+    targetPort: 9000
+    nodePort: 30003
+  - name: "12201"
+    port: 12201
+    targetPort: 12201
+    nodePort: 30004
